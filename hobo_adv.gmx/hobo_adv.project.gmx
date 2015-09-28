@@ -7,11 +7,20 @@
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprite>sprites\obj_hobo1</sprite>
+    <sprite>sprites\spr_temp_circle</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_launch_screen</background>
+    <background>background\bg_temp_city</background>
   </backgrounds>
   <paths name="paths"/>
+  <objects name="objects">
+    <object>objects\obj_camera</object>
+    <object>objects\obj_player</object>
+  </objects>
+  <rooms name="rooms">
+    <room>rooms\rm_temp_city</room>
+  </rooms>
   <help>
     <rtf>help.rtf</rtf>
   </help>
