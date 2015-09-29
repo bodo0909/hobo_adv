@@ -13,7 +13,6 @@
   <backgrounds name="background">
     <background>background\bg_launch_screen</background>
     <background>background\bg_pavement</background>
-    <background>background\bg_wall</background>
     <background>background\bg_walltile</background>
     <background>background\save</background>
   </backgrounds>
