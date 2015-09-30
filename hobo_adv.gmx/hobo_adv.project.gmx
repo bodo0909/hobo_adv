@@ -6,28 +6,29 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprite>sprites\spr_hobo1</sprite>
-    <sprite>sprites\spr_guy</sprite>
-    <sprite>sprites\spr_light</sprite>
+    <sprite>sprites\obj_hobo1</sprite>
+    <sprite>sprites\spr_temp_circle</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_launch_screen</background>
+    <background>background\bg_temp_city</background>
     <background>background\bg_pavement</background>
+    <background>background\bg_void</background>
     <background>background\bg_walltile</background>
-    <background>background\save</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
-    <script>scripts\move.gml</script>
     <script>scripts\grid_place_meeting.gml</script>
+    <script>scripts\move.gml</script>
   </scripts>
   <objects name="objects">
-    <object>objects\obj_level1</object>
+    <object>objects\obj_camera</object>
     <object>objects\obj_player</object>
-    <object>objects\obj_light</object>
+    <object>objects\obj_level1</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_level1</room>
+    <room>rooms\rm_temp_city</room>
   </rooms>
   <constants number="5">
     <constant name="CELL_WIDTH">250</constant>
