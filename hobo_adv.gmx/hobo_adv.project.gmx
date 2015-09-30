@@ -10,6 +10,9 @@
     <sprite>sprites\spr_temp_circle</sprite>
     <sprite>sprites\spr_light</sprite>
     <sprite>sprites\spr_guy</sprite>
+    <sprite>sprites\spr_wall</sprite>
+    <sprite>sprites\spr_round_light</sprite>
+    <sprite>sprites\spr_player_light</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_launch_screen</background>
@@ -24,10 +27,18 @@
     <script>scripts\move.gml</script>
   </scripts>
   <objects name="objects">
-    <object>objects\obj_camera</object>
-    <object>objects\obj_player</object>
-    <object>objects\obj_level1</object>
-    <object>objects\obj_light</object>
+    <objects name="player">
+      <object>objects\obj_camera</object>
+      <object>objects\obj_player</object>
+      <object>objects\obj_player_light</object>
+    </objects>
+    <objects name="level">
+      <object>objects\obj_wall</object>
+      <object>objects\obj_level1</object>
+      <object>objects\obj_light</object>
+      <object>objects\obj_round_light</object>
+      <object>objects\obj_light_surface</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_level1</room>

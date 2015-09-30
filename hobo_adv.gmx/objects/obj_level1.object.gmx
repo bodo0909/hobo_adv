@@ -212,8 +212,17 @@ for (var yy = 1; yy &lt; height-1; yy++)
             }
         }
         
+        if (grid[# xx, yy] == WALL)
+        {
+        instance_create(xx*CELL_WIDTH, yy*CELL_HEIGHT, obj_wall);
+        }
+        
     }
 }
+
+        instance_create(0, 0, obj_light_surface);
+
+
 
 
 
