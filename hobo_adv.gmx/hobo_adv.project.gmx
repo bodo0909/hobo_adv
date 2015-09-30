@@ -8,6 +8,8 @@
   <sprites name="sprites">
     <sprite>sprites\obj_hobo1</sprite>
     <sprite>sprites\spr_temp_circle</sprite>
+    <sprite>sprites\spr_light</sprite>
+    <sprite>sprites\spr_guy</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_launch_screen</background>
@@ -25,6 +27,7 @@
     <object>objects\obj_camera</object>
     <object>objects\obj_player</object>
     <object>objects\obj_level1</object>
+    <object>objects\obj_light</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_level1</room>
