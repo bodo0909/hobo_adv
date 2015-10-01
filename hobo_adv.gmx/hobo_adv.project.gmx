@@ -13,6 +13,7 @@
     <sprite>sprites\spr_wall</sprite>
     <sprite>sprites\spr_round_light</sprite>
     <sprite>sprites\spr_player_light</sprite>
+    <sprite>sprites\spr_newguy</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_launch_screen</background>
@@ -31,6 +32,7 @@
       <object>objects\obj_camera</object>
       <object>objects\obj_player</object>
       <object>objects\obj_player_light</object>
+      <object>objects\obj_player_destination</object>
     </objects>
     <objects name="level">
       <object>objects\obj_wall</object>
