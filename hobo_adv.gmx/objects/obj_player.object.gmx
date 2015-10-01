@@ -149,10 +149,7 @@ image_index=im_num;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
-show_debug_message(string(place_free(mouse_x,mouse_y)))
-
-//if we can move there without hitting solid objects
+            <string>//if we can move there without hitting solid objects
 if place_free(mouse_x,mouse_y) { 
     
     //delete all other destinations
