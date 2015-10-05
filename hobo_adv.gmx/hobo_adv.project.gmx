@@ -14,18 +14,33 @@
     <sprite>sprites\spr_round_light</sprite>
     <sprite>sprites\spr_player_light</sprite>
     <sprite>sprites\spr_newguy</sprite>
+    <sprite>sprites\spr_solid_bg</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_launch_screen</background>
-    <background>background\bg_temp_city</background>
     <background>background\bg_pavement</background>
     <background>background\bg_void</background>
     <background>background\bg_walltile</background>
+    <backgrounds name="CityTiles">
+      <background>background\bg_empty</background>
+      <background>background\bg_boundary</background>
+      <background>background\bg_road</background>
+      <background>background\bg_park_zone</background>
+      <background>background\bg_alley_zone</background>
+      <background>background\bg_building_zone</background>
+      <background>background\bg_alley_walk</background>
+      <background>background\bg_park_walk</background>
+    </backgrounds>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\grid_place_meeting.gml</script>
     <script>scripts\move.gml</script>
+    <scripts name="CityGeneration">
+      <script>scripts\make_board.gml</script>
+      <script>scripts\do_random_walk.gml</script>
+      <script>scripts\fill_recursively.gml</script>
+    </scripts>
   </scripts>
   <objects name="objects">
     <objects name="player">
@@ -40,13 +55,23 @@
       <object>objects\obj_light</object>
       <object>objects\obj_round_light</object>
       <object>objects\obj_light_surface</object>
+      <object>objects\obj_level_city</object>
+      <object>objects\obj_solid_bg</object>
     </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_city</room>
     <room>rooms\rm_level1</room>
-    <room>rooms\rm_temp_city</room>
   </rooms>
-  <constants number="5">
+  <constants number="13">
+    <constant name="BOUNDARY">-1</constant>
+    <constant name="EMPTY">0</constant>
+    <constant name="ROAD">1</constant>
+    <constant name="BUILDING_ZONE">2</constant>
+    <constant name="ALLEY_ZONE">3</constant>
+    <constant name="PARK_ZONE">4</constant>
+    <constant name="ALLEY_WALK">5</constant>
+    <constant name="PARK_WALK">6</constant>
     <constant name="CELL_WIDTH">250</constant>
     <constant name="CELL_HEIGHT">250</constant>
     <constant name="FLOOR">-5</constant>
