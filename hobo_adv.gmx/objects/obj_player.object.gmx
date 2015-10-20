@@ -73,7 +73,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>mp_potential_settings(45, 5, 10, 1)
+            <string>//set motion settings
+mp_potential_settings(45, 5, 10, 1)
 </string>
           </argument>
         </arguments>

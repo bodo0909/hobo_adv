@@ -31,6 +31,7 @@
       <background>background\bg_alley_walk</background>
       <background>background\bg_park_walk</background>
     </backgrounds>
+    <background>background\bg_road_tile</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -72,8 +73,8 @@
     <constant name="PARK_ZONE">4</constant>
     <constant name="ALLEY_WALK">5</constant>
     <constant name="PARK_WALK">6</constant>
-    <constant name="CELL_WIDTH">250</constant>
-    <constant name="CELL_HEIGHT">250</constant>
+    <constant name="CELL_WIDTH">200</constant>
+    <constant name="CELL_HEIGHT">200</constant>
     <constant name="FLOOR">-5</constant>
     <constant name="WALL">-6</constant>
     <constant name="VOID">-7</constant>

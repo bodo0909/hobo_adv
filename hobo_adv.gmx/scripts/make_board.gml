@@ -6,8 +6,8 @@ randomize();
 //  Adjustable Parameters
 //--------------------------
 
-var road_size=2;
-var block_size=11;
+var road_size=3;
+var block_size=9;
 
 var size_test_board_x=25;//41;
 var size_test_board_y=25;//41;
@@ -148,11 +148,11 @@ for (var i=road_size+((block_size+1) div 2); i<size_board_x; i+=block_size+road_
 room_width = CELL_WIDTH *size_board_x;
 room_height = CELL_HEIGHT * size_board_y;
 
-// Draw the level using the grid
+// Draw basic floors using the grid
 for (var yy = 0; yy < size_board_y; yy++)
 {
     for (var xx = 0; xx < size_board_x; xx++)
-    {
+    {       
         switch(board[# xx, yy]) {
             case EMPTY:
                 tile_add(bg_empty, 0, 0, CELL_WIDTH, CELL_HEIGHT, xx*CELL_WIDTH, yy*CELL_HEIGHT, 0);
@@ -161,9 +161,9 @@ for (var yy = 0; yy < size_board_y; yy++)
                 tile_add(bg_boundary, 0, 0, CELL_WIDTH, CELL_HEIGHT, xx*CELL_WIDTH, yy*CELL_HEIGHT, 0);
                 instance_create(xx*CELL_WIDTH, yy*CELL_HEIGHT, obj_solid_bg);
                 break;
-            case ROAD:
-                tile_add(bg_road, 0, 0, CELL_WIDTH, CELL_HEIGHT, xx*CELL_WIDTH, yy*CELL_HEIGHT, 0);
-                break;
+            //case ROAD:
+            //    tile_add(bg_road, 0, 0, CELL_WIDTH, CELL_HEIGHT, xx*CELL_WIDTH, yy*CELL_HEIGHT, 0);
+            //    break;
             case BUILDING_ZONE:
                 tile_add(bg_building_zone, 0, 0, CELL_WIDTH, CELL_HEIGHT, xx*CELL_WIDTH, yy*CELL_HEIGHT, 0);
                 instance_create(xx*CELL_WIDTH, yy*CELL_HEIGHT, obj_solid_bg);
@@ -187,4 +187,76 @@ for (var yy = 0; yy < size_board_y; yy++)
     }
 }
 
+
+// Get tile size
+var tw = CELL_WIDTH/2;
+var th = CELL_HEIGHT/2;
+// Add the tiles
+for (var yy = 0; yy < size_board_y*2; yy++)
+{
+    for (var xx = 0; xx < size_board_x*2; xx++)
+    {
+        if (board[# xx div 2, yy div 2] == ROAD)
+        {
+            
+            
+            // Get the tile x and y position
+            var tx = xx*tw;
+            var ty = yy*th;
+            
+            // Checks
+            var center = board[# xx div 2, yy div 2];
+            var right = board[# (xx+1) div 2, yy div 2];
+            var left = board[# (xx-1) div 2, yy div 2];
+            var top = board[# xx div 2, (yy-1) div 2];
+            var bottom = board[# xx div 2, (yy+1) div 2];
+            
+            var top_right = board[# (xx+1) div 2, (yy-1) div 2];
+            var top_left = board[# (xx-1) div 2, (yy-1) div 2];
+            var bottom_right = board[# (xx+1) div 2, (yy+1) div 2]; 
+            var bottom_left = board[# (xx-1) div 2, (yy+1) div 2];
+            
+            if (center == ROAD) {
+                if (right==BUILDING_ZONE) {
+                    if (bottom==BUILDING_ZONE) {
+                        tile_add(bg_road_tile, tw*2, th*0, tw, th, tx, ty, 0);
+                    } else if (top==BUILDING_ZONE) {
+                        tile_add(bg_road_tile, tw*2, th*1, tw, th, tx, ty, 0);
+                    } else {
+                        tile_add(bg_road_tile, tw*4, th*0, tw, th, tx, ty, 0);
+                    }
+                }
+                
+                if (left==BUILDING_ZONE) {
+                    if (bottom==BUILDING_ZONE) {
+                        tile_add(bg_road_tile, tw*3, th*0, tw, th, tx, ty, 0);
+                    } else if (top==BUILDING_ZONE) {
+                        tile_add(bg_road_tile, tw*3, th*1, tw, th, tx, ty, 0);
+                    } else {
+                        tile_add(bg_road_tile, tw*5, th*1, tw, th, tx, ty, 0);
+                    }
+                }
+
+                if (left!=BUILDING_ZONE && right!=BUILDING_ZONE) {                
+                    if (top==BUILDING_ZONE) {
+                        tile_add(bg_road_tile, tw*4, th*1, tw, th, tx, ty, 0);
+                    } else if (bottom==BUILDING_ZONE) {
+                        tile_add(bg_road_tile, tw*5, th*0, tw, th, tx, ty, 0);
+                    } else {
+                        if (bottom_left==BUILDING_ZONE) {
+                            tile_add(bg_road_tile, tw*1, th*0, tw, th, tx, ty, 0);
+                        } else if (bottom_right==BUILDING_ZONE) {
+                            tile_add(bg_road_tile, tw*0, th*0, tw, th, tx, ty, 0);
+                        } else if (top_left==BUILDING_ZONE) {
+                            tile_add(bg_road_tile, tw*1, th*1, tw, th, tx, ty, 0);
+                        } else if (top_right==BUILDING_ZONE) {
+                            tile_add(bg_road_tile, tw*0, th*1, tw, th, tx, ty, 0);
+                        } else 
+                        tile_add(bg_road_tile, tw*6, th*0, tw, th, tx, ty, 0);
+                    }
+                }
+            }
+        }
+    }
+}
 
