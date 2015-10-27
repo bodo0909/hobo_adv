@@ -167,21 +167,23 @@ for (var yy = 0; yy < size_board_y; yy++)
             case BUILDING_ZONE:
                 tile_add(bg_building_zone, 0, 0, CELL_WIDTH, CELL_HEIGHT, xx*CELL_WIDTH, yy*CELL_HEIGHT, 0);
                 instance_create(xx*CELL_WIDTH, yy*CELL_HEIGHT, obj_solid_bg);
+                instance_create(xx*CELL_WIDTH, yy*CELL_HEIGHT, obj_building);
                 break;
             case ALLEY_ZONE:
                 tile_add(bg_alley_zone, 0, 0, CELL_WIDTH, CELL_HEIGHT, xx*CELL_WIDTH, yy*CELL_HEIGHT, 0);
                 instance_create(xx*CELL_WIDTH, yy*CELL_HEIGHT, obj_solid_bg);
                 break;
             case PARK_ZONE:
-                tile_add(bg_park_zone, 0, 0, CELL_WIDTH, CELL_HEIGHT, xx*CELL_WIDTH, yy*CELL_HEIGHT, 0);
-                instance_create(xx*CELL_WIDTH, yy*CELL_HEIGHT, obj_solid_bg);
+            //    tile_add(bg_park_zone, 0, 0, CELL_WIDTH, CELL_HEIGHT, xx*CELL_WIDTH, yy*CELL_HEIGHT, 0);
+            //    instance_create(xx*CELL_WIDTH, yy*CELL_HEIGHT, obj_solid_bg);
+                instance_create(xx*CELL_WIDTH, yy*CELL_HEIGHT, obj_tree);
                 break;
             case ALLEY_WALK:
                 tile_add(bg_alley_walk, 0, 0, CELL_WIDTH, CELL_HEIGHT, xx*CELL_WIDTH, yy*CELL_HEIGHT, 0);
                 break;
-            case PARK_WALK:
-                tile_add(bg_park_walk, 0, 0, CELL_WIDTH, CELL_HEIGHT, xx*CELL_WIDTH, yy*CELL_HEIGHT, 0);
-                break;
+            //case PARK_WALK:
+            //    tile_add(bg_park_walk, 0, 0, CELL_WIDTH, CELL_HEIGHT, xx*CELL_WIDTH, yy*CELL_HEIGHT, 0);
+            //    break;
         }
  
     }
@@ -196,7 +198,7 @@ for (var yy = 0; yy < size_board_y*2; yy++)
 {
     for (var xx = 0; xx < size_board_x*2; xx++)
     {
-        if (board[# xx div 2, yy div 2] == ROAD)
+        //if (board[# xx div 2, yy div 2] == ROAD)
         {
             
             
@@ -217,45 +219,92 @@ for (var yy = 0; yy < size_board_y*2; yy++)
             var bottom_left = board[# (xx-1) div 2, (yy+1) div 2];
             
             if (center == ROAD) {
-                if (right==BUILDING_ZONE) {
-                    if (bottom==BUILDING_ZONE) {
+                if (right!=ROAD) {
+                    if (bottom!=ROAD) {
                         tile_add(bg_road_tile, tw*2, th*0, tw, th, tx, ty, 0);
-                    } else if (top==BUILDING_ZONE) {
+                    } else if (top!=ROAD) {
                         tile_add(bg_road_tile, tw*2, th*1, tw, th, tx, ty, 0);
                     } else {
                         tile_add(bg_road_tile, tw*4, th*0, tw, th, tx, ty, 0);
                     }
                 }
                 
-                if (left==BUILDING_ZONE) {
-                    if (bottom==BUILDING_ZONE) {
+                if (left!=ROAD) {
+                    if (bottom!=ROAD) {
                         tile_add(bg_road_tile, tw*3, th*0, tw, th, tx, ty, 0);
-                    } else if (top==BUILDING_ZONE) {
+                    } else if (top!=ROAD) {
                         tile_add(bg_road_tile, tw*3, th*1, tw, th, tx, ty, 0);
                     } else {
                         tile_add(bg_road_tile, tw*5, th*1, tw, th, tx, ty, 0);
                     }
                 }
 
-                if (left!=BUILDING_ZONE && right!=BUILDING_ZONE) {                
-                    if (top==BUILDING_ZONE) {
+                if (left==ROAD && right==ROAD) {                
+                    if (top!=ROAD) {
                         tile_add(bg_road_tile, tw*4, th*1, tw, th, tx, ty, 0);
-                    } else if (bottom==BUILDING_ZONE) {
+                    } else if (bottom!=ROAD) {
                         tile_add(bg_road_tile, tw*5, th*0, tw, th, tx, ty, 0);
                     } else {
-                        if (bottom_left==BUILDING_ZONE) {
+                        if (bottom_left!=ROAD) {
                             tile_add(bg_road_tile, tw*1, th*0, tw, th, tx, ty, 0);
-                        } else if (bottom_right==BUILDING_ZONE) {
+                        } else if (bottom_right!=ROAD) {
                             tile_add(bg_road_tile, tw*0, th*0, tw, th, tx, ty, 0);
-                        } else if (top_left==BUILDING_ZONE) {
+                        } else if (top_left!=ROAD) {
                             tile_add(bg_road_tile, tw*1, th*1, tw, th, tx, ty, 0);
-                        } else if (top_right==BUILDING_ZONE) {
+                        } else if (top_right!=ROAD) {
                             tile_add(bg_road_tile, tw*0, th*1, tw, th, tx, ty, 0);
                         } else 
                         tile_add(bg_road_tile, tw*6, th*0, tw, th, tx, ty, 0);
                     }
                 }
             }
+            
+            if (center == PARK_WALK) {
+                if (right==PARK_ZONE) {
+                    if (bottom==PARK_ZONE) {
+                        tile_add(bg_park_tile, tw*2, th*0, tw, th, tx, ty, 0);
+                    } else if (top==PARK_ZONE) {
+                        tile_add(bg_park_tile, tw*2, th*1, tw, th, tx, ty, 0);
+                    } else {
+                        tile_add(bg_park_tile, tw*4, th*0, tw, th, tx, ty, 0);
+                    }
+                }
+                
+                if (left==PARK_ZONE) {
+                    if (bottom==PARK_ZONE) {
+                        tile_add(bg_park_tile, tw*3, th*0, tw, th, tx, ty, 0);
+                    } else if (top==PARK_ZONE) {
+                        tile_add(bg_park_tile, tw*3, th*1, tw, th, tx, ty, 0);
+                    } else {
+                        tile_add(bg_park_tile, tw*5, th*1, tw, th, tx, ty, 0);
+                    }
+                }
+
+                if (left!=PARK_ZONE && right!=PARK_ZONE) {                
+                    if (top==PARK_ZONE) {
+                        tile_add(bg_park_tile, tw*4, th*1, tw, th, tx, ty, 0);
+                    } else if (bottom==PARK_ZONE) {
+                        tile_add(bg_park_tile, tw*5, th*0, tw, th, tx, ty, 0);
+                    } else {
+                        if (bottom_left==PARK_ZONE) {
+                            tile_add(bg_park_tile, tw*1, th*0, tw, th, tx, ty, 0);
+                        } else if (bottom_right==PARK_ZONE) {
+                            tile_add(bg_park_tile, tw*0, th*0, tw, th, tx, ty, 0);
+                        } else if (top_left==PARK_ZONE) {
+                            tile_add(bg_park_tile, tw*1, th*1, tw, th, tx, ty, 0);
+                        } else if (top_right==PARK_ZONE) {
+                            tile_add(bg_park_tile, tw*0, th*1, tw, th, tx, ty, 0);
+                        } else 
+                        tile_add(bg_park_tile, tw*6, th*0, tw, th, tx, ty, 0);
+                    }
+                }
+            }
+            
+            if (center == PARK_ZONE) {
+                tile_add(bg_park_tile, tw*6, th*1, tw, th, tx, ty, 0);
+                instance_create(tx, ty, obj_tree);
+            }
+            
         }
     }
 }
