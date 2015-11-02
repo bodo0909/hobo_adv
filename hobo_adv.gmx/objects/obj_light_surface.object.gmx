@@ -26,6 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>surf=surface_create(room_width/4,room_height/4);
+
+
 </string>
           </argument>
         </arguments>
