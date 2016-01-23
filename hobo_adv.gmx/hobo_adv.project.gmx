@@ -17,6 +17,7 @@
     <sprite>sprites\spr_solid_bg</sprite>
     <sprite>sprites\spr_tree</sprite>
     <sprite>sprites\spr_building</sprite>
+    <sprite>sprites\spr_hud_background</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_launch_screen</background>
@@ -47,6 +48,9 @@
       <script>scripts\fill_recursively.gml</script>
     </scripts>
   </scripts>
+  <fonts name="fonts">
+    <font>fonts\fnt_hud</font>
+  </fonts>
   <objects name="objects">
     <objects name="player">
       <object>objects\obj_camera</object>
@@ -65,8 +69,12 @@
       <object>objects\obj_tree</object>
       <object>objects\obj_building</object>
     </objects>
+    <objects name="HUD">
+      <object>objects\obj_hud_controller</object>
+    </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_testArea</room>
     <room>rooms\rm_city</room>
     <room>rooms\rm_level1</room>
   </rooms>

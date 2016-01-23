@@ -49,7 +49,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>playerSpeed</string>
+            <string>maxPlayerSpeed</string>
           </argument>
           <argument>
             <kind>0</kind>
@@ -98,8 +98,11 @@ mp_potential_settings(45, 5, 10, 1)
           <argument>
             <kind>1</kind>
             <string>//head towards destination if there is one
+var movementSpeed
 if instance_exists(obj_player_destination) {
-   mp_potential_step(obj_player_destination.x, obj_player_destination.y, playerSpeed, false);
+   movementMod = (1.1 - (100-global.player_energy)*(100-global.player_energy)*.00009);
+   mp_potential_step(obj_player_destination.x, obj_player_destination.y, movementMod*maxPlayerSpeed, false);
+   global.player_energy -= movementMod/50;
 }
 else { //look towards mouse
     move_towards_point(mouse_x,mouse_y,0);
