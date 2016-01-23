@@ -456,5 +456,10 @@
     <option_xbone_texture_page>1024</option_xbone_texture_page>
     <option_xbone_title_id></option_xbone_title_id>
   </Options>
-  <ConfigConstants/>
+  <ConfigConstants>
+    <constants number="2">
+      <constant name="BOOZE_INV">0</constant>
+      <constant name="TACO_INV">1</constant>
+    </constants>
+  </ConfigConstants>
 </Config>

@@ -18,6 +18,11 @@
     <sprite>sprites\spr_tree</sprite>
     <sprite>sprites\spr_building</sprite>
     <sprite>sprites\spr_hud_background</sprite>
+    <sprite>sprites\spr_standard_inventory</sprite>
+    <sprites name="items">
+      <sprite>sprites\spr_beer_inv</sprite>
+      <sprite>sprites\spr_taco_inv</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_launch_screen</background>
@@ -47,9 +52,16 @@
       <script>scripts\do_random_walk.gml</script>
       <script>scripts\fill_recursively.gml</script>
     </scripts>
+    <scripts name="inventory">
+      <script>scripts\inventory_item_db_init.gml</script>
+      <script>scripts\inventory_init.gml</script>
+      <script>scripts\add_to_inventory.gml</script>
+      <script>scripts\drop_from_inventory.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_hud</font>
+    <font>fonts\fnt_inv</font>
   </fonts>
   <objects name="objects">
     <objects name="player">
@@ -71,6 +83,7 @@
     </objects>
     <objects name="HUD">
       <object>objects\obj_hud_controller</object>
+      <object>objects\obj_hud_inventory</object>
     </objects>
   </objects>
   <rooms name="rooms">
