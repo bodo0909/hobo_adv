@@ -17,13 +17,17 @@
     <sprite>sprites\spr_solid_bg</sprite>
     <sprite>sprites\spr_tree</sprite>
     <sprite>sprites\spr_building</sprite>
-    <sprite>sprites\spr_hud_background</sprite>
-    <sprite>sprites\spr_standard_inventory</sprite>
     <sprites name="items">
       <sprite>sprites\spr_beer_inv</sprite>
+      <sprite>sprites\spr_beer_drop</sprite>
       <sprite>sprites\spr_taco_inv</sprite>
+      <sprite>sprites\spr_taco_drop</sprite>
     </sprites>
-    <sprite>sprites\spr_inventory_slot</sprite>
+    <sprites name="HUD">
+      <sprite>sprites\spr_standard_inventory</sprite>
+      <sprite>sprites\spr_inventory_slot</sprite>
+      <sprite>sprites\spr_hud_background</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_launch_screen</background>
@@ -54,13 +58,15 @@
       <script>scripts\fill_recursively.gml</script>
     </scripts>
     <scripts name="inventory">
-      <script>scripts\inventory_item_db_init.gml</script>
-      <script>scripts\inventory_init.gml</script>
-      <script>scripts\add_to_inventory.gml</script>
-      <script>scripts\drop_from_inventory.gml</script>
-      <script>scripts\mouse_pickup_inventory.gml</script>
-      <script>scripts\put_mouse_item_in_inventory_slot.gml</script>
+      <script>scripts\scr_inventory_item_db_init.gml</script>
+      <script>scripts\scr_inventory_init.gml</script>
+      <script>scripts\scr_add_to_inventory.gml</script>
+      <script>scripts\scr_drop_from_inventory.gml</script>
+      <script>scripts\scr_mouse_pickup_inventory.gml</script>
+      <script>scripts\scr_put_mouse_item_in_inventory_slot.gml</script>
+      <script>scripts\scr_start_drop_mouse_item_on_ground.gml</script>
     </scripts>
+    <script>scripts\scr_move_to_dest_w_notification.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_hud</font>
@@ -90,6 +96,10 @@
       <object>objects\obj_hud_inventory_slot</object>
     </objects>
     <object>objects\obj_mouse_controller</object>
+    <objects name="items">
+      <object>objects\obj_beer_drop</object>
+      <object>objects\obj_taco_drop</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_testArea</room>

@@ -33,7 +33,7 @@ global.mouse_item_qty=0;
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="0">
+    <event eventtype="6" enumb="56">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -50,13 +50,59 @@ global.mouse_item_qty=0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (global.item_on_mouse) {
-    draw_sprite_ext(global.items[global.mouse_item,4],0,mouse_x,mouse_y,0.75,0.75,0,c_white,1);
+            <string>///handle button clicks on empty space
+
+//if the GUI is not being clicked (the gui handles its own clicks)
+if (!position_meeting(mouse_x,mouse_y,all)) {
+    
+    //if the cursur is holding an item execute its script
+    if global.item_on_mouse {
+        script_execute(global.items[global.mouse_item,5]);
+            
+    //else if player can move to location
+    //if we can move there without hitting solid objects
+    } else if place_free(mouse_x,mouse_y) { 
+        
+        //delete all other destinations
+        with (obj_player_destination) instance_destroy();
+    
+        //create new destination
+        instance_create(mouse_x,mouse_y,obj_player_destination)
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>var xx, yy;
+xx=mouse_x-view_xview; //window_view_mouse_get_x( view_current );
+yy=mouse_y-view_yview; //window_view_mouse_get_y( view_current );
+
+if (global.item_on_mouse) {
+    draw_sprite_ext(global.items[global.mouse_item,4],0,xx,yy,0.75,0.75,0,c_white,1);
     draw_set_font(fnt_inv);
     if (global.items[global.mouse_item,2]) {
             draw_set_halign(fa_left);
             draw_set_valign(fa_top);
-            draw_text_colour(mouse_x+33,mouse_y+33,global.mouse_item_qty,c_black,c_black,c_black,c_black,1)
+            draw_text_colour(xx+33,yy+33,global.mouse_item_qty,c_black,c_black,c_black,c_black,1)
     }
 }
 </string>

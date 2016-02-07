@@ -36,7 +36,7 @@ global.max_inventory=4;
 //}
 
 //do main inventory initialization
-inventory_init()
+scr_inventory_init()
 
 //make inventory buttons
 for (var i=0; i&lt;4; i++) {
@@ -58,7 +58,7 @@ global.inventory[1,1]=1;
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="0">
+    <event eventtype="8" enumb="64">
       <action>
         <libid>1</libid>
         <id>501</id>
@@ -79,15 +79,40 @@ global.inventory[1,1]=1;
           </argument>
           <argument>
             <kind>0</kind>
-            <string>view_xview</string>
+            <string>0</string>
           </argument>
           <argument>
             <kind>0</kind>
-            <string>view_yview+200</string>
+            <string>200</string>
           </argument>
           <argument>
             <kind>0</kind>
             <string>-1</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>x=view_xview;
+y=view_yview+200;
+//draw_self();
+</string>
           </argument>
         </arguments>
       </action>
@@ -109,7 +134,7 @@ global.inventory[1,1]=1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>drop_from_inventory(1)
+            <string>scr_drop_from_inventory(1)
 </string>
           </argument>
         </arguments>
@@ -132,7 +157,7 @@ global.inventory[1,1]=1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>add_to_inventory(BOOZE_INV,2);
+            <string>scr_add_to_inventory(BOOZE_INV,2);
 </string>
           </argument>
         </arguments>
