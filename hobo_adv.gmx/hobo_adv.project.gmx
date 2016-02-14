@@ -58,18 +58,30 @@
       <script>scripts\fill_recursively.gml</script>
     </scripts>
     <scripts name="inventory">
-      <script>scripts\scr_inventory_item_db_init.gml</script>
-      <script>scripts\scr_inventory_init.gml</script>
       <script>scripts\scr_add_to_inventory.gml</script>
       <script>scripts\scr_drop_from_inventory.gml</script>
+      <script>scripts\scr_inventory_init.gml</script>
+      <script>scripts\scr_inventory_item_db_init.gml</script>
       <script>scripts\scr_mouse_pickup_inventory.gml</script>
       <script>scripts\scr_put_mouse_item_in_inventory_slot.gml</script>
       <script>scripts\scr_start_drop_mouse_item_on_ground.gml</script>
+      <script>scripts\scr_subtract_one_from_inv.gml</script>
     </scripts>
     <script>scripts\scr_move_to_dest_w_notification.gml</script>
+    <scripts name="items">
+      <script>scripts\scr_drink_beer.gml</script>
+      <script>scripts\scr_eat_taco.gml</script>
+    </scripts>
+    <scripts name="basic mechanics">
+      <script>scripts\scr_drink_alcohol.gml</script>
+      <script>scripts\scr_time_increment.gml</script>
+      <script>scripts\scr_eat_food.gml</script>
+      <script>scripts\scr_use_energy_to_walk.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_hud</font>
+    <font>fonts\fnt_hud_debug</font>
     <font>fonts\fnt_inv</font>
   </fonts>
   <objects name="objects">

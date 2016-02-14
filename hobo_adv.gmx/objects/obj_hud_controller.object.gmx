@@ -25,15 +25,37 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>globalvar player_energy;
-globalvar player_mood;
-globalvar player_health;
-globalvar player_buzz;
-
+            <string>// ENERGY
+// how much and how fast player does activities
+globalvar player_energy;  //[0-100]
 global.player_energy=100;
+
+// MOOD
+// how happy player is
+// unhappiness could lead to ranting to pedestrians and yelling at cars (reducing energy)
+// this could possibly make the player harder to control by the user
+globalvar player_mood;  //[0-100]
 global.player_mood=75;
+
+// HEALTH
+// low health is not attractive to people
+// too low and you die
+globalvar player_health;  //[0-100]
 global.player_health=100;
+
+// BUZZ
+// how drunk player is
+// mood increases while buzzed
+// this could possibly make the player harder to control by the user
+globalvar player_buzz;  //[0-100]
 global.player_buzz=0;
+
+
+// ADDICTION
+// higher addiction = higher tolerance to alc (less buzz gains by drinking)
+// higher addiction means mood decreses faster when sober
+globalvar player_addiction;  //[0-100]
+global.player_addiction=0; 
 </string>
           </argument>
         </arguments>
@@ -63,6 +85,29 @@ global.player_buzz=0;
           <argument>
             <kind>0</kind>
             <string>0</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>scr_time_increment()
+</string>
           </argument>
         </arguments>
       </action>
@@ -120,6 +165,7 @@ global.player_buzz=0;
 draw_healthbar(25,65,275,95,global.player_energy,c_black,c_navy,c_blue,0,1,1);
 draw_healthbar(25,105,275,135,global.player_mood,c_black,c_yellow,c_green,0,1,1);
 draw_healthbar(25,145,275,175,global.player_buzz,c_black,c_purple,c_purple,0,1,1);
+draw_healthbar(25,175,275,178,global.player_addiction,c_black,c_white,c_white,0,1,1);
 
 var healthtext;
 if (global.player_health &gt;90) {
@@ -169,8 +215,8 @@ if (global.player_mood &gt;98) {
 }
 
 var buzztext;
-if (global.player_mood &gt; 90) {
-    buzztext="Questionably Conscious";
+if (global.player_buzz &gt; 90) {
+    buzztext="Conscious?";
 } else if (global.player_buzz &gt; 70) {
     buzztext="Wasted";
 } else if (global.player_buzz &gt; 50) {
@@ -190,6 +236,15 @@ draw_text_colour(150,40,healthtext, c_white, c_white, c_white, c_white,1);
 draw_text_colour(150,80,energytext, c_white, c_white, c_white, c_white,1);
 draw_text_colour(150,120,moodtext, c_white, c_white, c_white, c_white,1);
 draw_text_colour(150,160,buzztext, c_white, c_white, c_white, c_white,1);
+
+
+//debugging:
+draw_set_font(fnt_hud_debug);
+//display rates on bars
+//draw_text_colour(250,40,healthtext, c_white, c_white, c_white, c_white,1);
+draw_text_colour(250,80,energy_inc*30, c_white, c_white, c_white, c_white,1);
+draw_text_colour(250,120,mood_inc*30, c_white, c_white, c_white, c_white,1);
+draw_text_colour(250,160,buzz_inc*30, c_white, c_white, c_white, c_white,1);
 
 </string>
           </argument>

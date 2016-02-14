@@ -100,9 +100,10 @@ mp_potential_settings(45, 5, 10, 1)
             <string>//head towards destination if there is one
 var movementSpeed
 if instance_exists(obj_player_destination) {
+   var moveSpeed = scr_walk_using_energy
    movementMod = (1.1 - (100-global.player_energy)*(100-global.player_energy)*.00009);
-   mp_potential_step(obj_player_destination.x, obj_player_destination.y, movementMod*maxPlayerSpeed, false);
-   global.player_energy -= movementMod/50;
+   mp_potential_step(obj_player_destination.x, obj_player_destination.y, moveSpeed, false);
+   scr_use_energy_to_move(movementMod)
 }
 else { //look towards mouse
     move_towards_point(mouse_x,mouse_y,0);
