@@ -160,6 +160,8 @@ if (action==0) {
             <kind>1</kind>
             <string>///draw correct qty image
 image_index=qty-1;
+
+scr_outline_when_hovered();
 draw_self();
 </string>
           </argument>
