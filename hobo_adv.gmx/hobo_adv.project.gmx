@@ -4,7 +4,9 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sound>sound\sound_hobomusic1</sound>
+  </sounds>
   <sprites name="sprites">
     <sprite>sprites\obj_hobo1</sprite>
     <sprite>sprites\spr_temp_circle</sprite>
@@ -107,6 +109,7 @@
       <object>objects\obj_tree</object>
       <object>objects\obj_building</object>
       <object>objects\obj_trash_can</object>
+      <object>objects\obj_music</object>
     </objects>
     <objects name="HUD">
       <object>objects\obj_hud_controller</object>

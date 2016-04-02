@@ -185,6 +185,7 @@
     <instance objName="obj_taco_drop" x="1800" y="1100" name="inst_423DD5E7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_taco_drop" x="2100" y="1100" name="inst_91BAD531" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_trash_can" x="1900" y="1500" name="inst_3E02C384" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_music" x="100" y="500" name="inst_7A2121BC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bg_road_tile" x="0" y="0" w="100" h="100" xo="600" yo="0" id="10000003" name="inst_5920C8BC" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
